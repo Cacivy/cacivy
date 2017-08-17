@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><link rel="stylesheet" href="/css/style.css"/><title>Cacivy</title></head><body><header><h1>Cacivy</h1></header><div class="content"><h2>Life、Code & Sports</h2><nav><ul><li><a href="http://blog.cacivy.com/" target="_blank">Blog</a></li><li><a href="https://github.com/Cacivy" target="_blank">Github</a></li><li><a href="https://www.zhihu.com/people/Cacivy" target="_blank">Zhihu</a></li><li><a href="https://www.douban.com/people/67769411/" target="_blank">Douban</a></li><li><a href="https://www.strava.com/athletes/21480640" target="_blank">Strava</a></li></ul></nav></div><canvas></canvas><script>document.addEventListener('touchmove', function(e) {
+  e.preventDefault()
+})
+var c = document.getElementsByTagName('canvas')[0],
+  x = c.getContext('2d'),
+  pr = window.devicePixelRatio || 1,
+  w = window.innerWidth,
+  h = window.innerHeight,
+  f = 90,
+  q,
+  r = 0,
+  u = Math.PI * 2,
+  v = Math.cos,
+  z = Math.random
+c.width = w * pr
+c.height = h * pr
+x.scale(pr, pr)
+x.globalAlpha = 0.6
+function i() {
+  x.clearRect(0, 0, w, h)
+  q = [{ x: 0, y: h * .7 + f }, { x: 0, y: h * .7 - f }]
+  while (q[1].x < w + f) d(q[0], q[1])
+}
+function d(i, j) {
+  x.beginPath()
+  x.moveTo(i.x, i.y)
+  x.lineTo(j.x, j.y)
+  var k = j.x + (z() * 2 - 0.25) * f,
+    n = y(j.y)
+  x.lineTo(k, n)
+  x.closePath()
+  r -= u / -50
+  x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+  x.fill()
+  q[0] = q[1]
+  q[1] = { x: k, y: n }
+}
+function y(p) {
+  var t = p + (z() * 2 - 1.1) * f
+  return (t > h || t < 0) ? y(p) : t
+}
+document.onclick = i
+document.ontouchstart = i
+i()</script></body></html>

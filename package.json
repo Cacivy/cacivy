@@ -1,0 +1,16 @@
+{
+  "name": "cacivy",
+  "version": "1.0.0",
+  "description": "a person homepage",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "gulp",
+    "jade",
+    "scss"
+  ],
+  "author": "Cacivy",
+  "license": "ISC"
+}

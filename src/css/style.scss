@@ -1,0 +1,59 @@
+$gary: #999;
+@mixin text() {
+  color: $gary;
+  font-weight: normal;
+  font-size: 15px;
+  letter-spacing: .12em;
+}
+$liWidth: 70px;
+$marginWidth: 2px;
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+header {
+  h1 {
+    font-family: 'Pristina', Arial, sans-serif;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+div.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: ($liWidth+$marginWidth*2) * 5;
+  text-align: center;
+
+  h2 {
+    margin-top: 50px;
+      @include text();
+  }
+  
+  nav {
+    border-top: 1px solid #000;
+    ul {
+      padding: 0;
+      overflow: hidden;
+      li {
+        @include text();
+        list-style: none;
+        float: left;
+        margin: 0 $marginWidth;
+        width: $liWidth;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+}
